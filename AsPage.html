@@ -1,0 +1,160 @@
+<DOCTYPE html>
+<html>
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-size: 16px; }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 14px;
+         }}
+  </style>
+
+
+<h1>AS PAGE</h1>
+
+
+  <style>
+    #chart {
+      width: 500px;
+      height: 300px;
+      border: 1px solid #ccc;
+      position: relative;
+    }
+
+    .bar {
+      width: 80px;
+      background-color: #86532d;
+      position: absolute;
+      bottom: 0;
+    }
+    
+    .average-bar {
+      width: 80px;
+      background-color: #ff0000;
+      position: absolute;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bar Chart 📊 (max value 100)</h1>
+  <div id="chart"></div>
+  <br>
+  <label for="bar1-input">Bar 1:</label>
+  <input type="text" id="bar1-input">
+  <br>
+  <label for="bar2-input">Bar 2:</label>
+  <input type="text" id="bar2-input">
+  <br>
+  <label for="bar3-input">Bar 3:</label>
+  <input type="text" id="bar3-input">
+  <br>
+  <label for="bar4-input">Bar 4:</label>
+  <input type="text" id="bar4-input">
+  <br>
+  <button onclick="drawChart()">Draw Chart</button>
+  
+  <button onclick="addAverageBar()">Add Average Bar</button>
+
+
+  <script>
+    var chart = document.getElementById("chart");
+
+    function drawChart() {
+      var bar1Value = parseFloat(document.getElementById("bar1-input").value);
+      var bar2Value = parseFloat(document.getElementById("bar2-input").value);
+      var bar3Value = parseFloat(document.getElementById("bar3-input").value);
+      var bar4Value = parseFloat(document.getElementById("bar4-input").value);
+
+      // Validate input values
+      if (isNaN(bar1Value) || isNaN(bar2Value) || isNaN(bar3Value) || isNaN(bar4Value)) {
+        alert("Invalid input values. Please enter numeric values.");
+        return;
+      }
+
+      // Calculate bar heights as a percentage of the maximum value (100)
+      var bar1Height = (bar1Value / 100) * 100;
+      var bar2Height = (bar2Value / 100) * 100;
+      var bar3Height = (bar3Value / 100) * 100;
+      var bar4Height = (bar4Value / 100) * 100;
+
+      // Clear existing bars
+      chart.innerHTML = "";
+
+      // Create and position bar 1
+      var bar1 = createBar(bar1Height, 0);
+      chart.appendChild(bar1);
+
+      // Create and position bar 2
+      var bar2 = createBar(bar2Height, 100);
+      chart.appendChild(bar2);
+
+      // Create and position bar 3
+      var bar3 = createBar(bar3Height, 200);
+      chart.appendChild(bar3);
+
+      // Create and position bar 4
+      var bar4 = createBar(bar4Height, 300);
+      chart.appendChild(bar4);
+    }
+
+    function createBar(height, left) {
+      var bar = document.createElement("div");
+      bar.className = "bar";
+      bar.style.height = height + "%";
+      bar.style.left = left + "px";
+      return bar;
+    }
+    
+   </script>
+    
+    <script>
+    var averageBar;
+
+function addAverageBar() {
+  if (averageBar) {
+    return; // Only allow adding one average bar
+  }
+
+  var averageHeight = calculateAverageHeight();
+
+  // Create and position average bar
+  averageBar = createAverageBar(averageHeight, 400);
+  chart.appendChild(averageBar);
+}
+
+function calculateAverageHeight() {
+  var bar1Height = parseFloat(document.getElementById("bar1-input").value) || 0;
+  var bar2Height = parseFloat(document.getElementById("bar2-input").value) || 0;
+  var bar3Height = parseFloat(document.getElementById("bar3-input").value) || 0;
+  var bar4Height = parseFloat(document.getElementById("bar4-input").value) || 0;
+
+  var sum = bar1Height + bar2Height + bar3Height + bar4Height;
+  var averageHeight = (sum / 4) || 0;
+
+  return (averageHeight / 100) * 100;
+}
+
+function createAverageBar(height, left) {
+  var bar = document.createElement("div");
+  bar.className = "average-bar";
+  bar.style.height = height + "%";
+  bar.style.left = left + "px";
+  return bar;
+}
+
+  </script>
+  
+ 
+</body>
+
+
+
+
+
+
+</html>
