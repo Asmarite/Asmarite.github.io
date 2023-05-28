@@ -1,63 +1,173 @@
 <DOCTYPE html>
+
 <html>
+
 <head>
-   <style>
-  h1 {color:#2e8b3c;}
-  h3 {color:#366c5a}
+
+   
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+
+    body {
+
+      font-size: 16px; }
+
+    @media (max-width: 600px) {
+
+      body {
+
+        font-size: 14px;
+
+         }}
+
   </style>
+
   
+
+   <style>
+
+  h1 {color:#2e8b3c;}
+
+  h3 {color:#366c5a}
+
+  </style>
+
+  
+
     <h1>Welcome to John.com! <span class="highlight"></span></h1>
+
     <h3>Enjoy ur stay!</h3>
+
     
+
+    
+
+    <details>
+
+  <summary>𝑀𝑢𝑠𝑖𝑐 𝑐𝑜𝑙𝑙𝑒𝑐𝑡𝑖𝑜𝑛</summary>
+
+  <p>𝓟𝓲𝓪𝓷𝓸 𝓽𝓱𝓲𝓷𝓰</p>
+
 <iframe
+
   frameborder="0"
+
   width="300"
+
   height="50"
+
   style="border:2px solid green;"
 
   src="https://drive.google.com/file/d/1b-Flr5dKG9_5eC-gt3S2CHJfb2ZqfJ55/preview?usp=drivesdk">
+
 </iframe>
+
+<br>
+
+<p>𝓜𝓮 𝓪𝓷𝓭 𝓽𝓱𝓮 𝓶𝓪𝓷 𝓲𝓷 𝓽𝓱𝓮 𝓶𝓸𝓸𝓷</p>
+
+<iframe
+
+  frameborder="0"
+
+  width="300"
+
+  height="50"
+
+  style="border:2px solid green;"
+
+  src="https://drive.google.com/file/d/1b8rxqkxnBq-u6z4DGIXuXsPAZ_iEq2In/preview?usp=drivesdk">
+
+</iframe>
+
+</details>
+
    
+
    <br>
+
       
+
     <script>
+
        
+
         function userInput() {
+
                 
+
                      
+
             var pass = prompt("pAss?");
+
             
-             document.getElementById('pass').innerHTML = "Your password is " + pass +   ", you are NOT logged in to the AS ACCOUNT";
+
+             document.getElementById('pass').innerHTML = "Your password is " + pass +   ", you are NOT logged in to the AS ACCOUNT"
+
              
+
             
 
-if (pass!='lol') {return;} {document.getElementById('pass').innerHTML = "You are logged in to the AS account"
+if (pass!='lol') {return;} {document.getElementById('pass').innerHTML = "You are logged in to the AS account" ;
 
-}}
+var clickMeButt = document.createElement('button');
+
+clickMeButt.id = 'asButton';
+
+clickMeButt.innerHTML = "As Page";
+
+clickMeButt.style.background = '#960d19'
+
+document.body.appendChild(clickMeButt);
+
+ var bton = document.getElementById('asButton');
+
+   
+
+         bton.addEventListener('click', function() {
+
+      window.location.href = 'AsPage.html'; 
+
+            
+
+})}}
+
 </script>
-
-
 
 </head>
 
 <body>
+
     
+
 <button onclick="generateRandomNumber()">RANDOM NUMBER GENERATOR!!</button>
+
     <p id="result"></p>
 
     <script>
+
         function generateRandomNumber() {
+
             var randomNumber = Math.floor(Math.random() * 100) + 1; 
+
             document.getElementById("result").innerText = randomNumber;
+
         }
+
     </script>    
+
   
 
-
    <u>KIKKO'S WABSITE!!</u>
+
    
+
     <br>
+
     <img src="https://yt3.googleusercontent.com/-TYYZ5IUYlHO4NdU7DlM0-BWJMb6Qp5FVrGQUSlOrm36nXynJOWY9-iFVxOV94pShKdDmDyN=s900-c-k-c0x00ffffff-no-rj" alt="Girl in a jacket" width="185" height="200"><br>
+
     
 
     
@@ -72,84 +182,172 @@ if (pass!='lol') {return;} {document.getElementById('pass').innerHTML = "You are
 
     }
 
-    
-
-    
-
   </script>
 
- 
+<br>
+
+<style>
+
+    mark { 
+
+  background-color: grey;
+
+  color: black;
+
+}
+
+    
+
+</style>
+
+<mark>
+
+    
+
+    Progress bar:</mark><progress>
+
+    </progress>
+
+<br>
+
+<details>
+
+  <summary>John summary</summary>
+
+  <p>Welcome to the JOHN website! Play some music or log in to your account!</p> 
+
+  
+
+  <p><u>This is version 0.0.001</u></p>
+
+</details>
 
  <p id="date"></p>
 
     <script>
+
         setInterval(function() {
+
             document.getElementById("date").innerText = "Clock: " + new Date().toLocaleString();
+
         }, 1000);
+
  
+
         function updateCountdown() {
+
             var countDownDate = new Date("December 1, 2023 13:00:00").getTime();
+
             var now = new Date().getTime();
+
             var distance = countDownDate - now;
+
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             var countdownElement = document.getElementById("countdown");
+
             countdownElement.innerHTML ="Countdown: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
             if (distance < 0) {
+
                 countdownElement.innerHTML = "Countdown expired";
+
             }
+
         }
 
         setInterval(updateCountdown, 1000);
+
     </script>
+
     <div id="countdown"></div>
+
     
+
     <br>
 
     
+
     
+
     
+
     <form>
+
         <input type="button" value="As Account" onClick="userInput()">
+
     </form>
+
     
+
     <div id='user'></div>
+
     <div id='pass'></div>
+
     
+
     
+
     <p>
+
         𝐓𝐡𝐞 𝐀𝐝𝐝𝐢𝐭𝐢𝐨𝐧 𝐌𝐚𝐜𝐡𝐢𝐧𝐞
+
         <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+
       <input type="number" id="b" name="b" value="0" style="width: 100px;"/> +
+
       <input type="number" id="a" name="a" value="0" style="width: 100px;" /> =
+
       <output name="result" for="a b">0</output>
+
  </form>
+
  <br>
+
  </p>
+
          
+
         
+
     
+
     <form>
+
         <input type="button" value="Top Account" onClick="puserInput()">
+
     </form>
+
     
+
     <div id='puser'></div>
+
     <div id='ppass'></div>
+
     
+
    <script>
 
-
 function puserInput() {
+
                 
+
                      
+
             var ppass = prompt("Top Password");
+
             
+
              document.getElementById('ppass').innerHTML = "Your password is " + ppass +   ", you are NOT logged in to the TOP ACCOUNT";
+
              
+
             
 
 if (ppass!='cum') {return;} {document.getElementById('ppass').innerHTML = "You are logged in to the TOP account"
@@ -174,26 +372,24 @@ document.body.appendChild(clickMeButton);
 
       window.location.href = 'TopPage.html'; 
 
-      
-
-            
-
-             
-
-             
-
-             
-
             
 
 })}}                 
+
                              
 
 </script>
 
 <br>
 
-
 </body>
 
 </html>
+
+
+
+
+
+
+
+    
