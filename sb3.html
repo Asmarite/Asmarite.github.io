@@ -1,0 +1,205 @@
+<html>
+    <head>
+        
+           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-size: 16px; }
+
+    @media (max-width: 200px) {
+      body {
+        font-size: 14px;
+         }}
+  </style>
+
+        
+    
+  <h1>Blackjack</h1>
+  <button onclick="deal()">Deal</button>
+  <button onclick="hit()">Hit</button>
+  <button onclick="stand()">Stand</button>
+  <p id="message"></p>
+  
+  <script>
+    var deck = [];
+    var playerHand = [];
+    var dealerHand = [];
+    
+    function deal() {
+      deck = createDeck();
+      playerHand = [drawCard(), drawCard()];
+      dealerHand = [drawCard(), drawCard()];
+      document.getElementById("message").textContent = "Player: " + calculateHand(playerHand) + " / Dealer: " + calculateHand(dealerHand);
+    }
+    
+    function hit() {
+      playerHand.push(drawCard());
+      var playerPoints = calculateHand(playerHand);
+      
+      if (playerPoints > 21) {
+        document.getElementById("message").textContent = "Player: " + playerPoints + " (Bust) / Dealer: " + calculateHand(dealerHand);
+      } else {
+        document.getElementById("message").textContent = "Player: " + playerPoints + " / Dealer: " + calculateHand(dealerHand);
+      }
+    }
+    
+    function stand() {
+      while (calculateHand(dealerHand) < 17) {
+        dealerHand.push(drawCard());
+      }
+      
+      var playerPoints = calculateHand(playerHand);
+      var dealerPoints = calculateHand(dealerHand);
+      
+      if (dealerPoints > 21 || playerPoints > dealerPoints) {
+        document.getElementById("message").textContent = "Player wins! Player: " + playerPoints + " / Dealer: " + dealerPoints;
+      } else if (playerPoints < dealerPoints) {
+        document.getElementById("message").textContent = "Dealer wins! Player: " + playerPoints + " / Dealer: " + dealerPoints;
+      } else {
+        document.getElementById("message").textContent = "Push! Player: " + playerPoints + " / Dealer: " + dealerPoints;
+      }
+    }
+    
+    function createDeck() {
+      var deck = [];
+      var suits = ["♠", "♣", "♦", "♥"];
+      var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+      
+      for (var suitIdx = 0; suitIdx < suits.length; suitIdx++) {
+        for (var valueIdx = 0; valueIdx < values.length; valueIdx++) {
+          deck.push(values[valueIdx] + suits[suitIdx]);
+        }
+      }
+      
+      return deck;
+    }
+    
+    function drawCard() {
+      var cardIdx = Math.floor(Math.random() * deck.length);
+      return deck.splice(cardIdx, 1)[0];
+    }
+    
+    function calculateHand(hand) {
+      var points = 0;
+      var hasAce = false;
+      
+      for (var i = 0; i < hand.length; i++) {
+        var card = hand[i];
+        var value = card.substring(0, card.length - 1);
+        
+        if (value === "A") {
+          points += 11;
+          hasAce = true;
+        } else if (value === "K" || value === "Q" || value === "J") {
+          points += 10;
+        } else {
+          points += parseInt(value);
+        }
+      }
+      
+      if (points > 21 &&       hasAce) {
+        points -= 10;
+      }
+      
+      return points;
+    }
+  </script>
+
+<br>
+
+    <h1>Buy Big Small</h1>
+    <button onclick="rollDice()">Roll the Dice</button>
+    <p id="result"></p>
+    
+    <script>
+        function rollDice() {
+            var dice1 = Math.floor(Math.random() * 6) + 1;
+            var dice2 = Math.floor(Math.random() * 6) + 1;
+            var dice3 = Math.floor(Math.random() * 6) + 1;
+            var total = dice1 + dice2 + dice3;
+            
+            document.getElementById("result").innerHTML = "Dice 1: " + dice1 + "<br>"
+                + "Dice 2: " + dice2 + "<br>"
+                + "Dice 3: " + dice3 + "<br>"
+                + "Total: " + total;
+        }
+    </script>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .reaction-tester {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .reaction-tester #start-button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+
+        .reaction-tester #target {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        .reaction-tester #result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="reaction-tester">
+        <h2>Reaction Time Tester</h2>
+        <p>Click the target as quickly as possible when it turns green!</p>
+        <button id="start-button" onclick="startTest()">Start</button>
+        <div id="target"></div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        var startTime, endTime;
+
+        function startTest() {
+            var target = document.getElementById("target");
+            var result = document.getElementById("result");
+
+            target.style.backgroundColor = "red";
+            target.style.pointerEvents = "auto";
+
+            target.onclick = function() {
+                if (target.style.backgroundColor === "green") {
+                    endTime = new Date().getTime();
+                    var reactionTime = (endTime - startTime) / 1000;
+                    result.innerText = "Your reaction time: " + reactionTime + " seconds";
+                    target.style.backgroundColor = "red";
+                    target.style.pointerEvents = "none";
+                }
+            };
+
+            setTimeout(function() {
+                target.style.backgroundColor = "green";
+                startTime = new Date().getTime();
+            }, Math.random() * 2000 + 1000);
+        }
+    </script>
+</body>
+</html>
+
+    
+</body>
+    
+    
+    
+    
+    
+    
+    
+</html>
