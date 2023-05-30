@@ -1,160 +1,512 @@
-<DOCTYPE html>
+<!DOCTYPE html>
+
 <html>
+
 <head>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
+
     body {
+
       font-size: 16px; }
 
     @media (max-width: 600px) {
+
       body {
+
         font-size: 14px;
+
          }}
+
   </style>
 
+    
 
-<h1>AS PAGE</h1>
-
+  <title>FUNNY SCHEDULE</title>
 
   <style>
+
+    body {
+
+      font-family: Arial, sans-serif;
+
+      background-color: #f5f5f5;
+
+      margin: 0;
+
+      padding: 0;
+
+    }
+
+    #task-list {
+
+      margin-bottom: 20px;
+
+      background-color: #fff;
+
+      border-radius: 8px;
+
+      padding: 20px;
+
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    }
+
+    h1 {
+
+      text-align: center;
+
+      color: #333;
+
+      margin-top: 40px;
+
+    }
+
+    h2 {
+
+      margin-bottom: 10px;
+
+      color: #333;
+
+    }
+
+    #date {
+
+      text-align: center;
+
+      font-size: 20px;
+
+      color: #666;
+
+      margin-bottom: 20px;
+
+    }
+
+    .button {
+
+      display: inline-block;
+
+      background-color: #ff5e5e;
+
+      color: #fff;
+
+      border: none;
+
+      border-radius: 4px;
+
+      padding: 10px 20px;
+
+      font-size: 16px;
+
+      cursor: pointer;
+
+      transition: background-color 0.3s;
+
+    }
+
+    .button:hover {
+
+      background-color: #ff3b3b;
+
+    }
+
+    .exercise-output {
+
+      margin-top: 20px;
+
+      font-size: 24px;
+
+      color: #333;
+
+      text-align: center;
+
+    }
+
+  </style>
+
+  
+
+  <img src="https://pbs.twimg.com/media/EDjhFP4W4AEt1fA.jpg" alt="Girl in a jacket" width="384" height="100">
+
+  
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+      displayDate();
+
+      generateTaskList();
+
+    });
+
+    function generateRandomTasks() {
+
+      var dayOfWeek = new Date().getDay();
+
+      var isExerciseDay = Math.floor(Math.random() * 7) !== dayOfWeek;
+
+      var isDrivingDay = Math.random() < 0.5;
+
+      var isShortsDay = Math.random() < 0.5;
+
+      var isTripDay = Math.random() < 1/30;
+
+      var isCheckupDay = dayOfWeek === 0; // 0 represents Sunday
+
+      return {
+
+        isExerciseDay: isExerciseDay,
+
+        isDrivingDay: isDrivingDay,
+
+        isShortsDay: isShortsDay,
+
+        isTripDay: isTripDay,
+
+        isCheckupDay: isCheckupDay
+
+      };
+
+    }
+
+    function displayTaskList() {
+
+      var taskList = document.getElementById('task-list');
+
+      taskList.innerHTML = '';
+
+      var todayTasks = generateRandomTasks();
+
+      var exerciseTask = document.createElement('li');
+
+      exerciseTask.textContent = todayTasks.isExerciseDay ? 'Exercise' : 'Day off from exercise';
+
+      taskList.appendChild(exerciseTask);
+
+      var drivingOrPhysicsTask = document.createElement('li');
+
+      drivingOrPhysicsTask.textContent = todayTasks.isDrivingDay ? 'Driving' : 'Physics';
+
+      taskList.appendChild(drivingOrPhysicsTask);
+
+      var shortsOrLongsTask = document.createElement('li');
+
+      shortsOrLongsTask.textContent = todayTasks.isShortsDay ? 'Shorts' : 'Longs';
+
+      taskList.appendChild(shortsOrLongsTask);
+
+      var tripTask = document.createElement('li');
+
+      tripTask.textContent = todayTasks.isTripDay ? 'Trip' : 'No trip';
+
+      taskList.appendChild(tripTask);
+
+      var checkupTask = document.createElement('li');
+
+      checkupTask.textContent = todayTasks.isCheckupDay ?
+
+       'Checkup' : 'No checkup';
+
+      taskList.appendChild(checkupTask);
+
+      var dateHeading = document.createElement('h2');
+
+      dateHeading.textContent = 'Today\'s Tasks:';
+
+      taskList.parentNode.insertBefore(dateHeading, taskList);
+
+    }
+
+    function generateTaskList() {
+
+      displayTaskList();
+
+    }
+
+    function displayDate() {
+
+      var currentDate = new Date();
+
+      var dayOfWeek = currentDate.toLocaleString("en-us", { weekday: "long" });
+
+      var dayOfMonth = currentDate.getDate();
+
+      var dateElement = document.getElementById("date");
+
+      dateElement.textContent = dayOfWeek + ", " + dayOfMonth;
+
+    }
+
+    function getRandomExercise() {
+
+      var exercises = ["legs", "arms", "abs"];
+
+      var randomIndex = Math.floor(Math.random() * exercises.length);
+
+      var randomExercise = exercises[randomIndex];
+
+      document.getElementById("exercise-output").textContent = randomExercise;
+
+    }
+
+  </script>
+
+</head>
+
+<body>
+
+  <h1>𝐾𝑖𝑘𝑘𝑜'𝑠 𝑆𝑐𝒉𝑒𝑑𝑢𝑙𝑒</h1>
+
+  <div id="task-list"></div>
+
+  <div id="date"></div>
+
+  <div class="exercise-generator">
+
+    <button class="button" onclick="getRandomExercise()">Generate Exercise</button>
+
+    <p class="exercise-output" id="exercise-output"></p>
+
+  </div>
+
+</body>
+
+<details>
+
+  <summary>Bar Chart</summary>
+
+  <style>
+
     #chart {
+
       width: 500px;
+
       height: 300px;
+
       border: 1px solid #ccc;
+
       position: relative;
+
     }
 
     .bar {
+
       width: 80px;
+
       background-color: #86532d;
+
       position: absolute;
+
       bottom: 0;
+
     }
+
     
+
     .average-bar {
+
       width: 80px;
+
       background-color: #ff0000;
+
       position: absolute;
+
       bottom: 0;
+
     }
+
   </style>
-</head>
+
 <body>
+
   <h1>Bar Chart 📊 (max value 100)</h1>
+
   <div id="chart"></div>
+
   <br>
+
   <label for="bar1-input">Bar 1:</label>
+
   <input type="text" id="bar1-input">
+
   <br>
+
   <label for="bar2-input">Bar 2:</label>
+
   <input type="text" id="bar2-input">
+
   <br>
+
   <label for="bar3-input">Bar 3:</label>
+
   <input type="text" id="bar3-input">
+
   <br>
+
   <label for="bar4-input">Bar 4:</label>
+
   <input type="text" id="bar4-input">
+
   <br>
+
   <button onclick="drawChart()">Draw Chart</button>
+
   
+
   <button onclick="addAverageBar()">Add Average Bar</button>
 
-
   <script>
+
     var chart = document.getElementById("chart");
 
     function drawChart() {
+
       var bar1Value = parseFloat(document.getElementById("bar1-input").value);
+
       var bar2Value = parseFloat(document.getElementById("bar2-input").value);
+
       var bar3Value = parseFloat(document.getElementById("bar3-input").value);
+
       var bar4Value = parseFloat(document.getElementById("bar4-input").value);
 
       // Validate input values
+
       if (isNaN(bar1Value) || isNaN(bar2Value) || isNaN(bar3Value) || isNaN(bar4Value)) {
+
         alert("Invalid input values. Please enter numeric values.");
+
         return;
+
       }
 
       // Calculate bar heights as a percentage of the maximum value (100)
+
       var bar1Height = (bar1Value / 100) * 100;
+
       var bar2Height = (bar2Value / 100) * 100;
+
       var bar3Height = (bar3Value / 100) * 100;
+
       var bar4Height = (bar4Value / 100) * 100;
 
       // Clear existing bars
+
       chart.innerHTML = "";
 
       // Create and position bar 1
+
       var bar1 = createBar(bar1Height, 0);
+
       chart.appendChild(bar1);
 
       // Create and position bar 2
+
       var bar2 = createBar(bar2Height, 100);
+
       chart.appendChild(bar2);
 
       // Create and position bar 3
+
       var bar3 = createBar(bar3Height, 200);
+
       chart.appendChild(bar3);
 
       // Create and position bar 4
+
       var bar4 = createBar(bar4Height, 300);
+
       chart.appendChild(bar4);
+
     }
 
     function createBar(height, left) {
+
       var bar = document.createElement("div");
+
       bar.className = "bar";
+
       bar.style.height = height + "%";
+
       bar.style.left = left + "px";
+
       return bar;
+
     }
+
     
+
    </script>
+
     
+
     <script>
+
     var averageBar;
 
 function addAverageBar() {
+
   if (averageBar) {
+
     return; // Only allow adding one average bar
+
   }
 
   var averageHeight = calculateAverageHeight();
 
   // Create and position average bar
+
   averageBar = createAverageBar(averageHeight, 400);
+
   chart.appendChild(averageBar);
+
 }
 
 function calculateAverageHeight() {
+
   var bar1Height = parseFloat(document.getElementById("bar1-input").value) || 0;
+
   var bar2Height = parseFloat(document.getElementById("bar2-input").value) || 0;
+
   var bar3Height = parseFloat(document.getElementById("bar3-input").value) || 0;
+
   var bar4Height = parseFloat(document.getElementById("bar4-input").value) || 0;
 
   var sum = bar1Height + bar2Height + bar3Height + bar4Height;
+
   var averageHeight = (sum / 4) || 0;
 
   return (averageHeight / 100) * 100;
+
 }
 
 function createAverageBar(height, left) {
+
   var bar = document.createElement("div");
+
   bar.className = "average-bar";
+
   bar.style.height = height + "%";
+
   bar.style.left = left + "px";
+
   return bar;
+
 }
 
   </script>
+
   
+
  
+
 </body>
 
-
-
-
-
+</details>
 
 </html>
+
+
+
