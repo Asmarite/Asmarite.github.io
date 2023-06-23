@@ -1,263 +1,158 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <style>
-
     body {
-
       font-size: 16px; }
 
     @media (max-width: 600px) {
-
       body {
-
         font-size: 14px;
-
          }}
-
   </style>
 
     
-
   <title>FUNNY SCHEDULE</title>
-
   <style>
-
     body {
-
       font-family: Arial, sans-serif;
-
       background-color: #f5f5f5;
-
       margin: 0;
-
       padding: 0;
-
     }
 
     #task-list {
-
       margin-bottom: 20px;
-
       background-color: #fff;
-
       border-radius: 8px;
-
       padding: 20px;
-
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
     }
 
     h1 {
-
       text-align: center;
-
       color: #333;
-
       margin-top: 40px;
-
     }
 
     h2 {
-
       margin-bottom: 10px;
-
       color: #333;
-
     }
 
     #date {
-
       text-align: center;
-
       font-size: 20px;
-
       color: #666;
-
       margin-bottom: 20px;
-
     }
 
     .button {
-
       display: inline-block;
-
       background-color: #ff5e5e;
-
       color: #fff;
-
       border: none;
-
       border-radius: 4px;
-
       padding: 10px 20px;
-
       font-size: 16px;
-
       cursor: pointer;
-
       transition: background-color 0.3s;
-
     }
 
     .button:hover {
-
       background-color: #ff3b3b;
-
     }
 
     .exercise-output {
-
       margin-top: 20px;
-
       font-size: 24px;
-
       color: #333;
-
       text-align: center;
-
     }
-
   </style>
-
   
-
   <img src="https://pbs.twimg.com/media/EDjhFP4W4AEt1fA.jpg" alt="Girl in a jacket" width="384" height="100">
-
   
-
   <script>
-
     document.addEventListener("DOMContentLoaded", function() {
-
       displayDate();
-
       generateTaskList();
-
     });
 
     function generateRandomTasks() {
-
       var dayOfWeek = new Date().getDay();
 
       var isExerciseDay = Math.floor(Math.random() * 7) !== dayOfWeek;
-
       var isDrivingDay = Math.random() < 0.5;
-
       var isShortsDay = Math.random() < 0.5;
-
       var isTripDay = Math.random() < 1/30;
-
       var isCheckupDay = dayOfWeek === 0; // 0 represents Sunday
 
       return {
-
         isExerciseDay: isExerciseDay,
-
         isDrivingDay: isDrivingDay,
-
         isShortsDay: isShortsDay,
-
         isTripDay: isTripDay,
-
         isCheckupDay: isCheckupDay
-
       };
-
     }
 
     function displayTaskList() {
-
       var taskList = document.getElementById('task-list');
-
       taskList.innerHTML = '';
 
       var todayTasks = generateRandomTasks();
 
       var exerciseTask = document.createElement('li');
-
       exerciseTask.textContent = todayTasks.isExerciseDay ? 'Exercise' : 'Day off from exercise';
-
       taskList.appendChild(exerciseTask);
 
       var drivingOrPhysicsTask = document.createElement('li');
-
       drivingOrPhysicsTask.textContent = todayTasks.isDrivingDay ? 'Driving' : 'Physics';
-
       taskList.appendChild(drivingOrPhysicsTask);
 
       var shortsOrLongsTask = document.createElement('li');
-
       shortsOrLongsTask.textContent = todayTasks.isShortsDay ? 'Shorts' : 'Longs';
-
       taskList.appendChild(shortsOrLongsTask);
 
       var tripTask = document.createElement('li');
-
       tripTask.textContent = todayTasks.isTripDay ? 'Trip' : 'No trip';
-
       taskList.appendChild(tripTask);
 
       var checkupTask = document.createElement('li');
-
       checkupTask.textContent = todayTasks.isCheckupDay ?
 
        'Checkup' : 'No checkup';
-
       taskList.appendChild(checkupTask);
 
       var dateHeading = document.createElement('h2');
-
       dateHeading.textContent = 'Today\'s Tasks:';
-
       taskList.parentNode.insertBefore(dateHeading, taskList);
-
     }
 
     function generateTaskList() {
-
       displayTaskList();
-
     }
 
     function displayDate() {
-
       var currentDate = new Date();
-
       var dayOfWeek = currentDate.toLocaleString("en-us", { weekday: "long" });
-
       var dayOfMonth = currentDate.getDate();
 
       var dateElement = document.getElementById("date");
-
       dateElement.textContent = dayOfWeek + ", " + dayOfMonth;
-
     }
 
     function getRandomExercise() {
-
       var exercises = ["legs", "arms", "abs"];
-
       var randomIndex = Math.floor(Math.random() * exercises.length);
-
       var randomExercise = exercises[randomIndex];
-
       document.getElementById("exercise-output").textContent = randomExercise;
-
     }
-
   </script>
-
 </head>
-
 <body>
-
   <h1>𝐾𝑖𝑘𝑘𝑜'𝑠 𝑆𝑐𝒉𝑒𝑑𝑢𝑙𝑒</h1>
 
   <div id="task-list"></div>
@@ -265,13 +160,9 @@
   <div id="date"></div>
 
   <div class="exercise-generator">
-
     <button class="button" onclick="getRandomExercise()">Generate Exercise</button>
-
     <p class="exercise-output" id="exercise-output"></p>
-
   </div>
-
 </body>
 
 <details>
@@ -279,234 +170,348 @@
   <summary>Bar Chart</summary>
 
   <style>
-
     #chart {
-
       width: 500px;
-
       height: 300px;
-
       border: 1px solid #ccc;
-
       position: relative;
-
     }
 
     .bar {
-
       width: 80px;
-
       background-color: #86532d;
-
       position: absolute;
-
       bottom: 0;
-
     }
-
     
-
     .average-bar {
-
       width: 80px;
-
       background-color: #ff0000;
-
       position: absolute;
-
       bottom: 0;
-
     }
-
   </style>
-
 <body>
-
   <h1>Bar Chart 📊 (max value 100)</h1>
-
   <div id="chart"></div>
-
   <br>
-
   <label for="bar1-input">Bar 1:</label>
-
   <input type="text" id="bar1-input">
-
   <br>
-
   <label for="bar2-input">Bar 2:</label>
-
   <input type="text" id="bar2-input">
-
   <br>
-
   <label for="bar3-input">Bar 3:</label>
-
   <input type="text" id="bar3-input">
-
   <br>
-
   <label for="bar4-input">Bar 4:</label>
-
   <input type="text" id="bar4-input">
-
   <br>
-
   <button onclick="drawChart()">Draw Chart</button>
-
   
-
   <button onclick="addAverageBar()">Add Average Bar</button>
 
-  <script>
 
+  <script>
     var chart = document.getElementById("chart");
 
     function drawChart() {
-
       var bar1Value = parseFloat(document.getElementById("bar1-input").value);
-
       var bar2Value = parseFloat(document.getElementById("bar2-input").value);
-
       var bar3Value = parseFloat(document.getElementById("bar3-input").value);
-
       var bar4Value = parseFloat(document.getElementById("bar4-input").value);
 
       // Validate input values
-
       if (isNaN(bar1Value) || isNaN(bar2Value) || isNaN(bar3Value) || isNaN(bar4Value)) {
-
         alert("Invalid input values. Please enter numeric values.");
-
         return;
-
       }
 
       // Calculate bar heights as a percentage of the maximum value (100)
-
       var bar1Height = (bar1Value / 100) * 100;
-
       var bar2Height = (bar2Value / 100) * 100;
-
       var bar3Height = (bar3Value / 100) * 100;
-
       var bar4Height = (bar4Value / 100) * 100;
 
       // Clear existing bars
-
       chart.innerHTML = "";
 
       // Create and position bar 1
-
       var bar1 = createBar(bar1Height, 0);
-
       chart.appendChild(bar1);
 
       // Create and position bar 2
-
       var bar2 = createBar(bar2Height, 100);
-
       chart.appendChild(bar2);
 
       // Create and position bar 3
-
       var bar3 = createBar(bar3Height, 200);
-
       chart.appendChild(bar3);
 
       // Create and position bar 4
-
       var bar4 = createBar(bar4Height, 300);
-
       chart.appendChild(bar4);
-
     }
 
     function createBar(height, left) {
-
       var bar = document.createElement("div");
-
       bar.className = "bar";
-
       bar.style.height = height + "%";
-
       bar.style.left = left + "px";
-
       return bar;
-
     }
-
     
-
    </script>
-
     
-
     <script>
-
     var averageBar;
 
 function addAverageBar() {
-
   if (averageBar) {
-
     return; // Only allow adding one average bar
-
   }
 
   var averageHeight = calculateAverageHeight();
 
   // Create and position average bar
-
   averageBar = createAverageBar(averageHeight, 400);
-
   chart.appendChild(averageBar);
-
 }
 
 function calculateAverageHeight() {
-
   var bar1Height = parseFloat(document.getElementById("bar1-input").value) || 0;
-
   var bar2Height = parseFloat(document.getElementById("bar2-input").value) || 0;
-
   var bar3Height = parseFloat(document.getElementById("bar3-input").value) || 0;
-
   var bar4Height = parseFloat(document.getElementById("bar4-input").value) || 0;
 
   var sum = bar1Height + bar2Height + bar3Height + bar4Height;
-
   var averageHeight = (sum / 4) || 0;
 
   return (averageHeight / 100) * 100;
-
 }
 
 function createAverageBar(height, left) {
-
   var bar = document.createElement("div");
-
   bar.className = "average-bar";
-
   bar.style.height = height + "%";
-
   bar.style.left = left + "px";
-
   return bar;
-
 }
 
   </script>
-
   
-
  
-
 </body>
 
 </details>
 
+<br>
+
+
+<a href="https://www.lichess.org">Testing</a>
+
+<br>
+<body>
+    <details>
+      <summary>Dairy</summary>
+      
+      <div class="date-list">
+1. 06/19 (Mon) 1200 chess.com blitz, started posting igel clips <br>
+2. 06/20 (Tue) Went information thing, need job and ucat <br>
+3. 06/21 (Wed) Set up hex theme, recorded script for ai vid <br>
+4. 06/22 (Thu) Green screen ai vid in <br>
+5. 06/23 (Fri) Quit chess for now, signed up for mysqa, updated website <br>
+6. 06/24 (Sat) <br>
+7. 06/25 (Sun) <br>
+8. 06/26 (Mon) <br>
+9. 06/27 (Tue)<br>
+10. 06/28 (Wed)<br>
+11. 06/29 (Thu)<br>
+12. 06/30 (Fri)<br>
+13. 07/01 (Sat)<br>
+14. 07/02 (Sun)<br>
+15. 07/03 (Mon)<br>
+16. 07/04 (Tue)<br>
+17. 07/05 (Wed)<br>
+    18. 07/06 (Thu)<br>
+    19. 07/07 (Fri)<br>
+    20. 07/08 (Sat)<br>
+    21. 07/09 (Sun)<br>
+    22. 07/10 (Mon)<br>
+    23. 07/11 (Tue)<br>
+    24. 07/12 (Wed)<br>
+    25. 07/13 (Thu)<br>
+    26. 07/14 (Fri)<br>
+    27. 07/15 (Sat)<br>
+    28. 07/16 (Sun)<br>
+    29. 07/17 (Mon)<br>
+    30. 07/18 (Tue)<br>
+    31. 07/19 (Wed)<br>
+    32. 07/20 (Thu)<br>
+    33. 07/21 (Fri)<br>
+    34. 07/22 (Sat)<br>
+    35. 07/23 (Sun)<br>
+    36. 07/24 (Mon)<br>
+    37. 07/25 (Tue)<br>
+    38. 07/26 (Wed)<br>
+    39. 07/27 (Thu)<br>
+    40. 07/28 (Fri)<br>
+    41. 07/29 (Sat)<br>
+    42. 07/30 (Sun)<br>
+    43. 07/31 (Mon)<br>
+    44. 08/01 (Tue)<br>
+    45. 08/02 (Wed)<br>
+    46. 08/03 (Thu)<br>
+    47. 08/04 (Fri)<br>
+    48. 08/05 (Sat)<br>
+    49. 08/06 (Sun)<br>
+    50. 08/07 (Mon)<br>
+    51. 08/08 (Tue)<br>
+    52. 08/09 (Wed)<br>
+    53. 08/10 (Thu)<br>
+    54. 08/11 (Fri)<br>
+    55. 08/12 (Sat)<br>
+    56. 08/13 (Sun)<br>
+    57. 08/14 (Mon)<br>
+    58. 08/15 (Tue)<br>
+    59. 08/16 (Wed)<br>
+    60. 08/17 (Thu)<br>
+    61. 08/18 (Fri)<br>
+    62. 08/19 (Sat)<br>
+    63. 08/20 (Sun)<br>
+    64. 08/21 (Mon)<br>
+    65. 08/22 (Tue)<br>
+    66. 08/23 (Wed)<br>
+    67. 08/24 (Thu)<br>
+    68. 08/25 (Fri)<br>
+    69. 08/26 (Sat)<br>
+    70. 08/27 (Sun)<br>
+    71. 08/28 (Mon)<br>
+    72. 08/29 (Tue)<br>
+    73. 08/30 (Wed)<br>
+    74. 08/31 (Thu)<br>
+    75. 09/01 (Fri)<br>
+    76. 09/02 (Sat)<br>
+    77. 09/03 (Sun)<br>
+    78. 09/04 (Mon)<br>
+    79. 09/05 (Tue)<br>
+    80. 09/06 (Wed)<br>
+    81. 09/07 (Thu)<br>
+    82. 09/08 (Fri)<br>
+    83. 09/09 (Sat)<br>
+    84. 09/10 (Sun)<br>
+    85. 09/11 (Mon)<br>
+    86. 09/12 (Tue)<br>
+    87. 09/13 (Wed)<br>
+    88. 09/14 (Thu)<br>
+    89. 09/15 (Fri)<br>
+    90. 09/16 (Sat)<br>
+    91. 09/17 (Sun)<br>
+    92. 09/18 (Mon)<br>
+    93. 09/19 (Tue)<br>
+    94. 09/20 (Wed)<br>
+    95. 09/21 (Thu)<br>
+    96. 09/22 (Fri)<br>
+    97. 09/23 (Sat)<br>
+    98. 09/24 (Sun)<br>
+    99. 09/25 (Mon)<br>
+    100. 09/26 (Tue)<br>
+    101. 09/27 (Wed)<br>
+    102. 09/28 (Thu)<br>
+    103. 09/29 (Fri)<br>
+    104. 09/30 (Sat)<br>
+    105. 10/01 (Sun)<br>
+    106. 10/02 (Mon)<br>
+    107. 10/03 (Tue)<br>
+    108. 10/04 (Wed)<br>
+    109. 10/05 (Thu)<br>
+    110. 10/06 (Fri)<br>
+    111. 10/07 (Sat)<br>
+    112. 10/08 (Sun)<br>
+    113. 10/09 (Mon)<br>
+    114. 10/10 (Tue)<br>
+    115. 10/11 (Wed)<br>
+    116. 10/12 (Thu)<br>
+    117. 10/13 (Fri)<br>
+    118. 10/14 (Sat)<br>
+    119. 10/15 (Sun)<br>
+    120. 10/16 (Mon)<br>
+    121. 10/17 (Tue)<br>
+    122. 10/18 (Wed)<br>
+    123. 10/19 (Thu)<br>
+    124. 10/20 (Fri)<br>
+    125. 10/21 (Sat)<br>
+    126. 10/22 (Sun)<br>
+    127. 10/23 (Mon)<br>
+    128. 10/24 (Tue)<br>
+    129. 10/25 (Wed)<br>
+    130. 10/26 (Thu)<br>
+    131. 10/27 (Fri)<br>
+    132. 10/28 (Sat)<br>
+    133. 10/29 (Sun)<br>
+    134. 10/30 (Mon)<br>
+    135. 10/31 (Tue)<br>
+    136. 11/01 (Wed)<br>
+    137. 11/02 (Thu)<br>
+    138. 11/03 (Fri)<br>
+    139. 11/04 (Sat)<br>
+    140. 11/05 (Sun)<br>
+    141. 11/06 (Mon)<br>
+    142. 11/07 (Tue)<br>
+    143. 11/08 (Wed)<br>
+    144. 11/09 (Thu)<br>
+    145. 11/10 (Fri)<br>
+    146. 11/11 (Sat)<br>
+    147. 11/12 (Sun)<br>
+    148. 11/13 (Mon)<br>
+    149. 11/14 (Tue)<br>
+    150. 11/15 (Wed)<br>
+    151. 11/16 (Thu)<br>
+    152. 11/17 (Fri)<br>
+    153. 11/18 (Sat)<br>
+    154. 11/19 (Sun)<br>
+    155. 11/20 (Mon)<br>
+    156. 11/21 (Tue)<br>
+    157. 11/22 (Wed)<br>
+    158. 11/23 (Thu)<br>
+    159. 11/24 (Fri)<br>
+    160. 11/25 (Sat)<br>
+    161. 11/26 (Sun)<br>
+    162. 11/27 (Mon)<br>
+    163. 11/28 (Tue)<br>
+    164. 11/29 (Wed)<br>
+    165. 11/30 (Thu)<br>
+    166. 12/01 (Fri)<br>
+    167. 12/02 (Sat)<br>
+    168. 12/03 (Sun)<br>
+    169. 12/04 (Mon)<br>
+    170. 12/05 (Tue)<br>
+    171. 12/06 (Wed)<br>
+    172. 12/07 (Thu)<br>
+    173. 12/08 (Fri)<br>
+    174. 12/09 (Sat)<br>
+    175. 12/10 (Sun)<br>
+    176. 12/11 (Mon)<br>
+    177. 12/12 (Tue)<br>
+    178. 12/13 (Wed)<br>
+179. 12/14 (Thu) <br>
+180. 12/15 (Fri) <br>
+        </div>
+    </details>
+   
+   <style>
+    .date-list {
+      max-width: 400px;
+      display: inline-block;
+      word-break: break-word;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+      background-color:#b41e0f3e;}
+  </style>
+  
+
+    
+</body>
+
 </html>
-
-
-
