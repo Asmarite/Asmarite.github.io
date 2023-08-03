@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-size: 16px;
+      background-color: #f9f5f7;
+      color: #333;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: #ff80b0;
+      margin-top: 30px;
+    }
+
+    h2 {
+      color: #ff80b0;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #ff80b0;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff6699;
+    }
+
+    p {
+      font-size: 18px;
+      color: #ff80b0;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>WELCOME TO CHICCO PAGE</h1>
+  
+  <img src="Screenshot_20230803_203402_WhatsApp.jpg" alt="Girl in a jacket" width="210" height="325"><br>
+
+  
+  <h2>ART PROMPTS</h2>
+  <button id="craft-button">Get Craft Idea</button>
+  <p id="craft-idea"></p>
+  <script>
+    var craftIdeas = [
+  "Create a paper mache sculpture",
+  "Make a DIY dreamcatcher",
+  "Paint a rock garden",
+  "Design your own greeting cards",
+  "Construct a recycled material collage",
+  "Decorate a plain mug with ceramic markers",
+  "Craft a colorful friendship bracelet",
+  "Sculpt mini animals with air-dry clay",
+  "Design and paint your own tote bag",
+  "Make a photo collage using magazine cutouts",
+  "Create a beaded keychain or bookmark",
+  "Paint a canvas with acrylic pour techniques",
+  "Design and sew a simple fabric mask",
+  "Construct a birdhouse from popsicle sticks",
+  "Decorate a flower pot and plant a small succulent",
+  "Craft a paper lantern with tissue paper",
+  "Paint and decorate smooth rocks as paperweights",
+  "Make a no-sew fleece blanket",
+  "Create a tie-dye t-shirt or hoodie",
+  "Craft a wind chime with beads and bells",
+  "Design and assemble a scrapbook",
+  "Make a personalized puzzle from cardboard",
+  "Create a string art masterpiece",
+  "Craft your own scented candles"
+];
+
+    var button = document.getElementById("craft-button");
+    var craftIdea = document.getElementById("craft-idea");
+
+    button.addEventListener("click", function() {
+      var randomIndex = Math.floor(Math.random() * craftIdeas.length);
+      craftIdea.textContent = craftIdeas[randomIndex];
+    });
+  </script>
+  
+  
+  <iframe
+
+  frameborder="0"
+
+  width="300"
+
+  height="50"
+
+  style="border:2px solid pink;"
+
+  src="https://drive.google.com/file/d/1oWuVEoyy54W_Yw3IVfVNkIS_fyDvuM43/preview?usp=drivesdk">
+
+</iframe>
+  
+  
+  
+</body>
+</html>
+ 
