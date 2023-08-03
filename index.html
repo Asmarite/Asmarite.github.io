@@ -1,12 +1,23 @@
 <DOCTYPE html>
 
 <html>
-
+    
 <head>
     
 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" href="sideeye.jpg" type="image/jpeg">
+  
+  <!-- Specify the icon for add-to-home-screen -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Your App Name">
+  <link rel="apple-touch-icon" href="sideeye.jpg" type="image/jpeg">
+  
+ 
 
   <style>
 
@@ -30,15 +41,20 @@
 
   h1 {color:#2e8b3c;}
 
+h2 {color:#609532}
+
   h3 {color:#366c5a}
 
   </style>
 
   
 
-    <h1>Welcome to John.com! <span class="highlight"></span></h1>
+    <h2> ЩΞLCФMΞ ΓФ JФHИ.CФM <span class="highlight"></span></h2>
 
-    <h3>Enjoy ur stay!</h3>
+   
+
+  <p>[乇几ﾌㄖㄚ ㄚㄖㄩ尺 丂ㄒ卂ㄚ!]</p>
+
 
       <details>
 
@@ -177,6 +193,45 @@ src= "https://drive.google.com/file/d/1ky6_gHziiiTXDkTsXBJDS8689et9aoDS/preview?
 
 </iframe>
 
+<br>
+
+
+<p>Skip to 1:00</p>
+
+<iframe
+
+  frameborder="0"
+
+  width="300"
+
+  height="50"
+
+  style="border:2px solid green;"
+
+  src="https://drive.google.com/file/d/1oVM9-TUBxtOpXhN-gl9TChX8KwcR0ruw/preview?usp=drivesdk">
+
+</iframe>
+
+<p>𝕄𝕖𝕞𝕠𝕣𝕪 ℝ𝕖𝕓𝕠𝕠𝕥 🌆</p>
+
+<iframe
+
+  frameborder="0"
+
+  width="300"
+
+  height="50"
+
+  style="border:2px solid green;"
+
+  src="https://drive.google.com/file/d/1oVu5NCtqHLueFuBXD5LX9xu86kLaz7mh/preview?usp=drivesdk">
+  
+  </iframe>
+
+
+<br>
+
+
 
 </details>
    <br>
@@ -234,6 +289,7 @@ document.body.appendChild(clickMeButt);
 <body>
 
     
+
 
 <button onclick="generateRandomNumber()">RANDOM NUMBER GENERATOR!!</button>
 
@@ -299,11 +355,33 @@ document.body.appendChild(clickMeButt);
 
     Jerald the blue worm: </mark>
    <br>
-   <progress>
+   
+       
+       <div id="progressBar">
+  <progress></progress>
+</div>
 
-    </progress>
+<audio id="explosionAudio" style="display:none;">
+  <source src="explosion.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
-<br>
+<button onclick="playExplosion()">KILL JERALD</button>
+
+<script>
+  function playExplosion() {
+    var explosionAudio = document.getElementById("explosionAudio");
+    explosionAudio.play();
+    
+    var progressBar = document.getElementById("progressBar");
+    if (progressBar) {
+      progressBar.parentNode.removeChild(progressBar);
+    }
+  }
+</script>
+
+
+
 
 <button onclick="generateRandomCumber()">𝑃𝑒𝑡 𝐽𝑒𝑟𝑎𝑙𝑑</button>
 
@@ -332,9 +410,12 @@ document.body.appendChild(clickMeButt);
 
   
 
-  <p><u>This is version 0.0.015</u></p>
+  <p><u>This is version 0.0.033</u></p>
 
 </details>
+
+<p>______________________________</p>
+    
 
  <p id="date"></p>
 
@@ -392,7 +473,14 @@ document.body.appendChild(clickMeButt);
         var timeDiff = currentDate.getTime() - targetDate.getTime();
         var daysPassed = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
         document.getElementById('daysPassed').innerHTML = "Day " + daysPassed;
+  
+    
     </script>
+  
+    
+ 
+    
+    
 </body>
 
 
@@ -402,7 +490,7 @@ document.body.appendChild(clickMeButt);
     </style>
     
     
-    
+ 
     
      <p id="bro"></p>
 
@@ -530,7 +618,7 @@ document.body.appendChild(clickMeButt);
       margin: 10px;
     }
   </style>
-
+<p>______________________________</p>
     
 
     <p>
@@ -547,11 +635,98 @@ document.body.appendChild(clickMeButt);
 
  </form>
 
- <br>
+
+ <p>______________________________</p>
+
+<h2>BMI Calculator</h2>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+  <form id="bmiForm">
+    <label for="weight">Weight (kg):</label>
+    <input type="number" step="0.01" id="weight" name="weight" required><br><br>
+    <label for="height">Height (m):</label>
+    <input type="number" step="0.01" id="height" name="height" required><br><br>
+    <button type="button" onclick="calculateBMI()">Calculate BMI</button>
+  </form>
+  <p id="BROSEULT"></p>
+  <script>
+    function calculateBMI() {
+      const weight = parseFloat(document.getElementById('weight').value);
+      const height = parseFloat(document.getElementById('height').value);
+
+      if (isNaN(weight) || isNaN(height) || height <= 0) {
+        document.getElementById('BROSEULT').textContent = 'Please enter valid values.';
+        return;
+      }
+
+      const bmi = weight / (height * height);
+
+      let category;
+      if (bmi < 18.5) {
+        category = 'Underweight';
+      } else if (bmi < 24.9) {
+        category = 'Normal weight';
+      } else if (bmi < 29.9) {
+        category = 'Overweight';
+      } else {
+        category = 'Obese';
+      }
+
+      const result = `Your BMI is: ${bmi.toFixed(2)} (${category})`;
+      document.getElementById('BROSEULT').textContent = result;
+     
+    }
+  </script>
+</body>
+
+<p>______________________________</p>
+
+<body>
+
+<h3>Monte Carlo π Approximation</h3> <p><small>(NOTE: Use <10 mil points)</p></small>
+<label for="numPoints">Number of Points:</label>
+<input type="number" id="numPoints" value="1000000">
+<button onclick="approximatePi()">Approximate π</button>
+<p id="approximation"></p>
+
+<script>
+function approximatePi() {
+    var numPoints = parseInt(document.getElementById("numPoints").value);
+    var pointsInsideCircle = 0;
+
+    for (var i = 0; i < numPoints; i++) {
+        var x = Math.random() * 2 - 1;
+        var y = Math.random() * 2 - 1;
+
+        var distanceSquared = x * x + y * y;
+
+        if (distanceSquared <= 1) {
+            pointsInsideCircle++;
+        }
+    }
+
+    var piApproximation = 4 * (pointsInsideCircle / numPoints);
+    document.getElementById("approximation").textContent = "Approximated π: " + piApproximation;
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+</html>
+
+ 
 
  </p>
 
-         
+ <p>______________________________</p>        
 
         
 
@@ -613,13 +788,69 @@ document.body.appendChild(clickMeButton);
 
             
 
-})}}                 
-
-                             
+})}}             
 
 </script>
 
-<br>
+<form>
+
+        <input type="button" value="Chicco Account" onClick="juserInput()">
+
+    </form>
+
+    
+
+    <div id='juser'></div>
+
+    <div id='jass'></div>
+
+
+ <script>
+
+       
+
+        function juserInput() {
+
+                
+
+                     
+
+            var jass = prompt("WHAT IS YOUR PASSWORD?!!!");
+
+            
+
+             document.getElementById('jass').innerHTML = "Your password is " + jass +   ", you are NOT logged in to the CHICCO ACCOUNT"
+
+             
+
+            
+
+if (jass!='noob') {return;} {document.getElementById('jass').innerHTML = "You are logged in to the CHICCO account" ;
+
+var clickMeBut = document.createElement('button');
+
+clickMeBut.id = 'chiccoButton';
+
+clickMeBut.innerHTML = "Chicco Page";
+
+clickMeBut.style.background = '#4c290d'
+
+document.body.appendChild(clickMeBut);
+
+ var btoon = document.getElementById('chiccoButton');
+
+   
+
+         btoon.addEventListener('click', function() {
+
+      window.location.href = 'chicco.html'; 
+
+            
+
+})}}
+
+</script>    
+
 
 </body>
 
