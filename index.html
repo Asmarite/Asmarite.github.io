@@ -243,6 +243,28 @@ src= "https://drive.google.com/file/d/1wEzNLVcmTltlpVuyCNYxSRFlAtvGY7_F/preview?
 
 </iframe>
 <br>
+
+<p>Радио</p>
+
+<iframe
+
+  frameborder="0"
+
+  width="300"
+
+  height="50"
+
+  style="border:2px solid green;"
+
+  src="https://drive.google.com/file/d/1GhCjWU4bSE7GbCbw8C-_GCrC9JUbgbNE/preview?usp=drivesdk">
+
+</iframe>
+
+<br>
+
+
+
+
 </details>
    <br>
 
@@ -485,7 +507,7 @@ document.body.appendChild(clickMeButt);
 
         function updateCountdown() {
 
-            var countDownDate = new Date("December 16, 2023 13:00:00").getTime();
+            var countDownDate = new Date("June 12, 2024 13:00:00").getTime();
 
             var now = new Date().getTime();
 
@@ -897,24 +919,95 @@ document.body.appendChild(clickMeBut);
 
 </script>    
 
-<p>______________________________</p>        
+<p>______________________________</p>       
 
-<h2> J o h n G P T</h2>
+<h4>GAMBLING CALCULATOR</h4>
+
+<p id="demo"></p>
+
+<p> % chance of success <input type="number" id="inputX" style="width: 50px;"></p>
+<p> Repeated <input type="number" id="inputY" style="width: 50px;"> times in a row</p>
+
+<p id="demo"></p>
+
+<script>
+    function calculatePower() {
+        let x = document.getElementById("inputX").value/100;
+        let y = document.getElementById("inputY").value;
+        document.getElementById("demo").innerHTML = Math.pow(x, y)*100 + "%";
+    }
+</script>
+
+<button onclick="calculatePower()">Calculate</button>
+
+
+<p>______________________________</p>
+<h2>Blender 6.0</h2>
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(95,20,10,0,2*Math.PI);
+ctx.stroke();
+</script> 
+
+ <button onclick="Blender()">Gravity</button>
+ <script>
+ function Blender() {
+ 
+ 
+ var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var grd = ctx.createRadialGradient(98, 78, 8, 99, 68, 109);
+grd.addColorStop(0, "white");
+grd.addColorStop(1, "white");
+ctx.fillStyle = grd;
+ctx.fillRect(10, 8, 150, 80);
+
+
+    var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(95,50,10,0,2*Math.PI);
+ctx.stroke(); 
+
+setTimeout(() => {
+
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var grd = ctx.createRadialGradient(98, 78, 8, 99, 68, 109);
+grd.addColorStop(0, "white");
+grd.addColorStop(1, "white");
+ctx.fillStyle = grd;
+ctx.fillRect(10, 8, 150, 80);
+
+
+  
+  var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(95,90,10,0,2*Math.PI);
+ctx.stroke(); 
+  
+}, 500);}
+        
+</script>
+
+<p>______________________________</p>
+
+<h1> J o h n G P T</h1>
+
 
 
 <head>
   
     <style>
        
-        #chat-container {
-            width: 350px;
-            height: 1000px;
-            margin: 0 auto;
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
+       
        
         .message {
             margin: 5px;
@@ -1002,3 +1095,5 @@ document.body.appendChild(clickMeBut);
     </script>
 </body>
 </html>
+
+<p>______________________________</p>        
