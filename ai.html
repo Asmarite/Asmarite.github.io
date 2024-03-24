@@ -1,5 +1,306 @@
 <html>
 
-hello
+<style>
+.header {
+    background-color: #c2c1bd;
+    text-align: right;
+    padding: 14px;
+  }
 
+</style>
+
+<div class="header">
+    <h1> meow</h1>
+  </div>
+  
+
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Times New Roman", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="https://github.com/Asmarite/Asmarite.github.io" class="w3-bar-item w3-button w3-theme-l1">Repo</a>
+    <a href="https://asmarite.my.canva.site/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
+    <a href="https://www.bible.com/bible/1/MIC.7.8" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Values</a>
+    <a href="https://youtu.be/CleUrqPLCzU?feature=shared" class="w3-bar-item w3-button w3-hide-small w3-hover-white">News</a>
+    <a href="mailto:threeleggedpuppy@gmail.com" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+    <a href="javascript:alert('SHUT UP!!!!');" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Important Message</a>
+    <a href="https://github.com/godmoded" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-hover-white">Partners</a>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-small w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Menu</b></h4>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://www.w3schools.com"> do NOT visit</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://godmode.social/"> Dyaln</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://asmarite.github.io/"> Main site</a>
+  <a class="w3-bar-item w3-button w3-hover-black" href="https://randoma11y.com/">Colors</a>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-10">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-black">Welcome to DLANAI</h1>
+
+
+      <p>
+
+        <details>
+        The following is an Artificial Intelligence named DLAN. DLAN has five buttons in front of him,
+        four of which lead to him being digitally shocked, the other having no effect.
+        DLAN's goal is to find the safe button and click it for eternity before he is shocked to death.
+        <br>
+        DLAN assigns a random score to all five buttons from 1-1000 and clicks the button with the
+         highest score. If an unsafe button is chosen,
+        the tendency to choose said button again is decreased. Conversely, the tendency to choose a safe 
+        button is increased if it is chosen.     
+        </details>
+        
+       <br>
+       <button id="runButton" onclick="startAutoClick()">Run DLANAI</button>
+
+    
+       <!-- display stuff -->
+       <p id="safeone"></p>
+       <p id="result"></p>
+       <p id="diu"></p>
+       <p id="hp"></p>
+       <br>
+       
+       <!--random scores-->
+       <p id="intro"></p>
+       <p id="aa"></p>
+       <p id="bb"></p>
+       <p id="cc"></p>
+       <p id="dd"></p>
+       <p id="ee"></p>
+       <br>
+       
+       <p id="big"></p>
+       
+       <script>
+           let autoClickInterval;
+       
+           function startAutoClick() {
+               autoClickInterval = setInterval(RandomNo, 1000);
+           }
+       
+      
+
+           function stopAutoClick() {
+        clearInterval(autoClickInterval);
+        document.getElementById("startButton").style.display = "inline";
+        
+    }
+       
+           const Safebut = Math.floor(Math.random() * 5) + 1;
+           var Dlanhp = 10;
+           //affecting score and chance
+           let f = 0;
+           let g = 0;
+           let h = 0;
+           let i = 0;
+           let j = 0;
+       
+           function RandomNo() {
+               document.getElementById("safeone").innerText = "Safe button: " + Safebut;
+       
+               //each has equal chance of being highest initially
+               var a = Math.floor(Math.random() * 1000) + 1 + f;
+               var b = Math.floor(Math.random() * 1000) + 1 + g;
+               var c = Math.floor(Math.random() * 1000) + 1 + h;
+               var d = Math.floor(Math.random() * 1000) + 1 + i;
+               var e = Math.floor(Math.random() * 1000) + 1 + j;
+       
+               document.getElementById("intro").innerText = "Tendency to Click: ";
+               document.getElementById("aa").innerText = "Button 1: " + a;
+               document.getElementById("bb").innerText = "Button 2: " + b;
+               document.getElementById("cc").innerText = "Button 3: " + c;
+               document.getElementById("dd").innerText = "Button 4: " + d;
+               document.getElementById("ee").innerText = "Button 5: " + e;
+       
+               //comparison
+               let biggest = a;
+               bigbig = 1;
+               if (b > biggest) {
+                   biggest = b;
+                   bigbig = 2;
+               }
+               if (c > biggest) {
+                   biggest = c;
+                   bigbig = 3;
+               }
+               if (d > biggest) {
+                   biggest = d;
+                   bigbig = 4;
+               }
+               if (e > biggest) {
+                   biggest = e;
+                   bigbig = 5;
+               }
+       
+               document.getElementById("big").innerText = "biggest score: " + biggest + ". Button " + bigbig +
+                   " pressed by DLAN";
+       
+               var randomNumber = bigbig;
+       
+               document.getElementById("result").innerText = "DLAN's guess: " + randomNumber;
+       
+               if (randomNumber === Safebut) {
+                   diuyou = "DLAN clicked the safe button and was not shocked!";
+                   document.getElementById("diu").innerText = diuyou;
+       
+                   //AI REWARD
+                   if (randomNumber === 1) {
+                       f += 15
+                   }
+                   if (randomNumber === 2) {
+                       g += 15
+                   }
+                   if (randomNumber === 3) {
+                       h += 15
+                   }
+                   if (randomNumber === 4) {
+                       i += 15
+                   }
+                   if (randomNumber === 5) {
+                       j += 15
+                   }
+               } else {
+                   diuyou = "DLAN clicked an unsafe button and was shocked!";
+                   document.getElementById("diu").innerText = diuyou;
+       
+                   Dlanhp = Dlanhp - 1;
+                   document.getElementById("hp").innerText = "DLAN HP: " + Dlanhp;
+       
+                   //AI PUNISHMENT 
+                   if (randomNumber === 1) {
+                       f -= 400
+                   }
+                   if (randomNumber === 2) {
+                       g -= 400
+                   }
+                   if (randomNumber === 3) {
+                       h -= 400
+                   }
+                   if (randomNumber === 4) {
+                       i -= 400
+                   }
+                   if (randomNumber === 5) {
+                       j -= 400
+                   }
+               }
+           }
+       </script>
+       
+        
+        </p>
+    </div>
+    <div class="w3-third w3-container">
+      <p class="w3-border w3-padding-large w3-padding-10 w3-center"> 
+
+        <img src="sideeye.jpg" alt="Kylas Cat" width="190" height="130">
+
+
+
+      </p>
+      <p class="w3-border w3-padding-large w3-padding-30 w3-center">
+
+        <img src="sideeye.jpg" alt="Kylas Cat" width="190" height="130">
+
+
+
+      </p>
+    </div>
+  </div>
+
+  
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a class="w3-button w3-black" href="#">1</a>
+      <a class="w3-button w3-hover-black" href="https://www.chessmonitor.com/u/2cxuvvUYaNxEdnj459Zt">2</a>
+      <a class="w3-button w3-hover-black" href="https://www.chess.com/home">3</a>
+      <a class="w3-button w3-hover-black" href="https://lichess.org/">4</a>
+      <a class="w3-button w3-hover-black" href="https://www.chesstime.io/stats/JacobKHay">5</a>
+      
+    </div>
+  </div>
+
+  
+  <footer id="myFooter"></footer>
+    <div class="w3-container w3-theme-l2 w3-padding-20">
+      <p> Tiramisu is an Italian dessert made of ladyfinger pastries (savoiardi) dipped in coffee, layered with a whipped mixture of eggs, sugar, and mascarpone and flavored with cocoa. </p>
+    </div>
+    <div class="w3-container w3-theme-l1">
+      <p>Powered by <a href="https://www.youtube.com/channel/UCSYx4RGwA6jbt81KOIHwu2g" target="_blank">AS</a></p>
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
 </html>
