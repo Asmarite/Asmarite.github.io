@@ -1,7 +1,320 @@
 <html>
 
+<style>
+    .content {
+      max-width: 500px;
+      margin: auto;
+      color: rgb(0, 0, 0);
+      font-size: 25px;
+      line-height: 18px;
+      font-weight: bold;
+      background-color: rgba(255, 255, 255, 0.6);
+      -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgba(143, 235, 81, 0.877);
+    font-family: Arial, Helvetica, sans-serif;
+    }
+    img {
+    position: absolute;
+    z-index: -1;
+  }
+   
+    </style>
 
 
+<div class="content">
+
+<head> Chess 2: Take the Horsey </head>
+
+<p>WASD to move</p>
+
+
+<p id="result"></p>
+
+<br>
+
+<p id="point"></p> <p id="start"></p>
+
+<br>
+
+<input type="text" id="txt">
+
+
+
+<script>
+
+
+    const matrix = 
+     [['[', '_', '_', '_', '__', '_', '_', ']'], // would be [0][0], [0][1] [0][2]
+     ['[', '⠀', '⠀', '⠀', '⠀', '⠀', '⠀', ']'], // [1][0] etc.
+     ['[', '⠀', '⠀', '⠀', '⠀', '⠀', '⠀', ']'], 
+     ['[', '⠀', '⠀', '⠀', '⠀', '⠀', '⠀', ']'],
+     ['[', '⠀', '⠀', '⠀', '⠀', '⠀', '⠀', ']'],
+     ['[', '⠀', '⠀', '⠀', '⠀', '⠀', '⠀', ']'],
+     ['[', '⠀', '⠀', '⠀', '⠀', '⠀', '⠀', ']'],
+     ['[', '‾', '‾', '‾', '‾‾‾', '‾‾‾', '‾‾‾', ']']
+    
+    ];
+
+    var y = 3 
+var z = 4
+
+var p = -1
+
+var a =  Math.floor(Math.random() * 6 + 1);
+var b = Math.floor(Math.random() * 6 + 1);
+
+matrix[y][z] = '♔';
+
+
+function knightrandom(){
+
+    matrix[a][b] = '⠀'; //clear knight position
+
+    a = Math.floor(Math.random() * 6 + 1);
+    b = Math.floor(Math.random() * 6 + 1);
+
+    matrix[a][b] = '♞';
+
+matrix[a][b] = '♞';
+
+}
+
+knightrandom();
+
+function points()
+{
+
+
+p = p + 1
+
+document.getElementById("point").innerText = "points: " + p;
+
+knightrandom();
+
+}
+
+points(); 
+
+
+
+
+
+
+
+function bruh()
+{
+
+    document.getElementById("result").innerText = "";
+for (let row of matrix){
+
+    const rowString = row.join(' ');
+
+document.getElementById("result").innerText += rowString + '\n';
+
+}}
+
+bruh();
+
+
+   var canmove = 0
+
+
+document.getElementById("start").innerText = "PRESS ENTER TO START";
+
+
+function startgame(){
+
+    document.getElementById("start").innerText = "take the knight!!!";
+
+    canmove = canmove + 1
+
+    timeout = setTimeout(alertFunc, 60000);
+
+    
+
+}
+
+function alertFunc() { //endgame
+  canmove = canmove - 69696969
+  document.getElementById("start").innerText = "GAME HAS ENDED, refresh to restart";
+}
+
+document.addEventListener('keydown', function(e) {
+
+
+if (e.keyCode == 13) { //startgame
+
+  startgame();
+  let t = document.getElementById("txt");
+setTimeout(function(){ t.value="59 seconds" }, 1000);
+setTimeout(function(){ t.value="58 seconds" }, 2000);
+setTimeout(function(){ t.value="57 seconds" }, 3000);
+setTimeout(function(){ t.value="56 seconds" }, 4000);
+setTimeout(function(){ t.value="55 seconds" }, 5000);
+setTimeout(function(){ t.value="54 seconds" }, 6000);
+setTimeout(function(){ t.value="53 seconds" }, 7000);
+setTimeout(function(){ t.value="52 seconds" }, 8000);
+setTimeout(function(){ t.value="51 seconds" }, 9000);
+setTimeout(function(){ t.value="50 seconds" }, 10000);
+setTimeout(function(){ t.value="49 seconds" }, 11000);
+setTimeout(function(){ t.value="48 seconds" }, 12000);
+setTimeout(function(){ t.value="47 seconds" }, 13000);
+setTimeout(function(){ t.value="46 seconds" }, 14000);
+setTimeout(function(){ t.value="45 seconds" }, 15000);
+setTimeout(function(){ t.value="44 seconds" }, 16000);
+setTimeout(function(){ t.value="43 seconds" }, 17000);
+setTimeout(function(){ t.value="42 seconds" }, 18000);
+setTimeout(function(){ t.value="41 seconds" }, 19000);
+setTimeout(function(){ t.value="40 seconds" }, 20000);
+setTimeout(function(){ t.value="39 seconds" }, 21000);
+setTimeout(function(){ t.value="38 seconds" }, 22000);
+setTimeout(function(){ t.value="37 seconds" }, 23000);
+setTimeout(function(){ t.value="36 seconds" }, 24000);
+setTimeout(function(){ t.value="35 seconds" }, 25000);
+setTimeout(function(){ t.value="34 seconds" }, 26000);
+setTimeout(function(){ t.value="33 seconds" }, 27000);
+setTimeout(function(){ t.value="32 seconds" }, 28000);
+setTimeout(function(){ t.value="31 seconds" }, 29000);
+setTimeout(function(){ t.value="30 seconds" }, 30000);
+setTimeout(function(){ t.value="29 seconds" }, 31000);
+setTimeout(function(){ t.value="28 seconds" }, 32000);
+setTimeout(function(){ t.value="27 seconds" }, 33000);
+setTimeout(function(){ t.value="26 seconds" }, 34000);
+setTimeout(function(){ t.value="25 seconds" }, 35000);
+setTimeout(function(){ t.value="24 seconds" }, 36000);
+setTimeout(function(){ t.value="23 seconds" }, 37000);
+setTimeout(function(){ t.value="22 seconds" }, 38000);
+setTimeout(function(){ t.value="21 seconds" }, 39000);
+setTimeout(function(){ t.value="20 seconds" }, 40000);
+setTimeout(function(){ t.value="19 seconds" }, 41000);
+setTimeout(function(){ t.value="18 seconds" }, 42000);
+setTimeout(function(){ t.value="17 seconds" }, 43000);
+setTimeout(function(){ t.value="16 seconds" }, 44000);
+setTimeout(function(){ t.value="15 seconds" }, 45000);
+setTimeout(function(){ t.value="14 seconds" }, 46000);
+setTimeout(function(){ t.value="13 seconds" }, 47000);
+setTimeout(function(){ t.value="12 seconds" }, 48000);
+setTimeout(function(){ t.value="11 seconds" }, 49000);
+setTimeout(function(){ t.value="10 seconds" }, 50000);
+setTimeout(function(){ t.value="09 seconds" }, 51000);
+setTimeout(function(){ t.value="08 seconds" }, 52000);
+setTimeout(function(){ t.value="07 seconds" }, 53000);
+setTimeout(function(){ t.value="06 seconds" }, 54000);
+setTimeout(function(){ t.value="05 seconds" }, 55000);
+setTimeout(function(){ t.value="04 seconds" }, 56000);
+setTimeout(function(){ t.value="03 seconds" }, 57000);
+setTimeout(function(){ t.value="02 seconds" }, 58000);
+setTimeout(function(){ t.value="01 seconds" }, 59000);
+setTimeout(function(){ t.value="00 seconds" }, 60000);
+
+
+
+
+}
+})
+
+
+
+
+
+document.addEventListener('keydown', function(e) {
+
+
+  if (e.keyCode == 68) { //d
+
+    if (z<6 && canmove >= 1) {
+
+    matrix [y][z] = '⠀';
+    
+    z = z + 1 
+  ;
+
+  matrix [y][z] = '♔';
+
+  bruh(); 
+
+  if (y == a && z == b) { points(); }
+
+}
+
+  
+  } 
+else if (e.keyCode == 65) { //a
+
+    if (z>1 && canmove >= 1) {
+ 
+
+        matrix [y][z] = '⠀';
+    
+    z = z - 1 
+  ;
+
+  matrix [y][z] = '♔';
+
+  bruh();
+
+  if (y == a && z == b) { points(); }
+
+    }
+
+}
+
+  else if (e.keyCode == 83) { //s
+
+    if (y<6 && canmove >= 1) {
+
+    
+
+
+matrix [y][z] = '⠀';
+
+y = y + 1 
+;
+
+matrix [y][z] = '♔';
+
+bruh();
+
+if (y == a && z == b) { points(); }
+
+    }
+
+}
+
+else if (e.keyCode == 87) { //w
+
+    if (y>1 && canmove >= 1) {
+ 
+
+matrix [y][z] = '⠀';
+
+y = y - 1 
+;
+
+matrix [y][z] = '♔';
+
+bruh();
+
+if (y == a && z == b) { points(); }
+    }
+
+
+
+
+
+}
+
+
+  })
+
+
+
+
+</script>
+
+
+
+</div>
 
 
 </html>
