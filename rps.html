@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+ROCK PAPER SCISSORS BOT
+</head>
+
+<br>
+
+<body>
+
+<button id="rock" onclick="Rock()">Play Rock</button>
+<button id="paper" onclick="Paper()">Play Paper</button>
+<button id="scissors" onclick="Scissors()">Play Scissors</button>
+
+<p id="playerchoose"></p>
+<p id="Aichoice"></p>
+
+<script>
+
+    let x = 0
+
+    let y = 0
+
+    let z;
+
+    
+
+    function AiChoose() {
+
+        x = Math.floor(Math.random() * 3);
+
+        if (x === 0) {
+                   y = "rock"
+               }
+               else if (x === 1) {
+                  y = "paper"
+               }
+               else {
+                  y = "scissors"                
+               }
+
+        
+
+        document.getElementById("Aichoice").innerText = "Ai chooses " + y + "  " + x;
+
+
+
+    }
+
+    function Rock() {
+
+        z = 50;
+    
+        document.getElementById("playerchoose").innerText = "Rock Chosen! " + z;
+
+        
+
+        AiChoose();
+
+    }
+
+    function Paper() {
+
+        z = 51;
+    
+    document.getElementById("playerchoose").innerText = "Paper Chosen! " + z;
+
+    
+
+    AiChoose();
+}
+
+    function Scissors() {
+
+        z = 52;
+    
+    document.getElementById("playerchoose").innerText = "Scissors Chosen! " + z;
+
+
+
+    AiChoose();
+}
+
+
+
+
+    </script>
+
+
+    </body>
