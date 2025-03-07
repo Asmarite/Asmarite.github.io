@@ -62,6 +62,9 @@ var p = -1
 
 var a =  Math.floor(Math.random() * 6 + 1);
 var b = Math.floor(Math.random() * 6 + 1);
+var c = Math.floor(Math.random() * 6 + 1);
+var d = Math.floor(Math.random() * 6 + 1);
+
 
 matrix[y][z] = '♔';
 
@@ -70,18 +73,44 @@ function knightrandom(){
 
     matrix[a][b] = '⠀'; //clear knight position
 
-    a = Math.floor(Math.random() * 6 + 1);
+    matrix[c][d] = '⠀'; //clear block position 
+
+    a = Math.floor(Math.random() * 6 + 1); //knight
     b = Math.floor(Math.random() * 6 + 1);
 
-    matrix[a][b] = '♞';
+    c = Math.floor(Math.random() * 6 + 1); //block
+    d = Math.floor(Math.random() * 6 + 1);
+
+    
+
+    
 
 matrix[a][b] = '♞';
+
+matrix [c][d] = '☃';
 
 }
 
 knightrandom();
 
-function points()
+function explode() //EXPLODE FUNCTION EXPLODE FUNCTION EXPLODE FUNCTION
+{       
+
+  p = p - 5
+
+    
+
+    document.getElementById("point").innerText = "points: " + p;
+
+    knightrandom();
+
+    
+
+    matrix [y][z] = '♔';
+
+}
+
+function points() // POINTS FUNCTION POINTS FUNCTION POINTS FUNCTION
 {
 
 
@@ -90,6 +119,10 @@ p = p + 1
 document.getElementById("point").innerText = "points: " + p;
 
 knightrandom();
+
+
+
+matrix [y][z] = '♔';
 
 }
 
@@ -235,6 +268,8 @@ document.addEventListener('keydown', function(e) {
 
   if (y == a && z == b) { points(); }
 
+  if ( y== c && z == d) {explode(); }
+
 }
 
   
@@ -254,6 +289,8 @@ else if (e.keyCode == 65) { //a
   bruh();
 
   if (y == a && z == b) { points(); }
+
+  if ( y== c && z == d) {explode(); }
 
     }
 
@@ -277,6 +314,8 @@ bruh();
 
 if (y == a && z == b) { points(); }
 
+ if ( y== c && z == d) {explode();} 
+
     }
 
 }
@@ -296,6 +335,8 @@ matrix [y][z] = '♔';
 bruh();
 
 if (y == a && z == b) { points(); }
+
+if ( y== c && z == d) {explode(); }
     }
 
 
