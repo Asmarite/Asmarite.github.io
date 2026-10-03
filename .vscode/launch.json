@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open AsPage.html",
-            "file": "/home/asmarite/Asmarite.github.io/AsPage.html"
+            "name": "Open index.html",
+            "file": "/home/asmarite/Asmarite.github.io/index.html"
         }
     ]
 }

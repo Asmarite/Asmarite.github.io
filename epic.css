@@ -17,4 +17,13 @@ background-color: #111526;
 }
 
 
+div.scroll-container {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
 
+div.scroll-container img {
+  padding: 10px;
+}
